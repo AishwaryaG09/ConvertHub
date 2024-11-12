@@ -33,7 +33,7 @@ const Calculators = () => {
         <br />
         <StyledA
           onClick={() => {
-            navigate(pages.HIKE_CALCULATOR);
+            navigate(pages.WORK_EXPERIENCE_CALCULATOR);
           }}
         >
           Work experience calculator
@@ -41,7 +41,7 @@ const Calculators = () => {
         <br />
         <StyledA
           onClick={() => {
-            navigate(pages.HIKE_CALCULATOR);
+            navigate(pages.FIND_AGE);
           }}
         >
           Age calculator

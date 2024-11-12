@@ -10,13 +10,13 @@ const StyleDiv = styled.div`
   padding: 12px;
   width: 60%;
 `;
-const StyleButton = styled.button`
+export const StyleButton = styled.button`
   border-radius: 4px;
   background: #2a52be;
   color: #ffffff;
   border: 1px solid #000000;
   margin-right: 14px;
-  padding: 8px
+  padding: 8px;
 `;
 
 const StyledP = styled.p`
@@ -45,9 +45,6 @@ const HikeCalculator = () => {
     setCurrentSalary();
     setIncreaseSalary();
   };
-
-  console.log("currentSalary---", currentSalary);
-  console.log("percent---", percent);
   return (
     <>
       <StyledH1>Find new increased salary by Percentage</StyledH1>
@@ -60,7 +57,6 @@ const HikeCalculator = () => {
           style={{ width: "100%" }}
           value={Number(currentSalary) !== 0 && Number(currentSalary)}
           onChange={(e) => {
-            console.log("e.target.value--", e.target.value);
             setCurrentSalary(e.target.value);
           }}
         />
@@ -74,7 +70,6 @@ const HikeCalculator = () => {
           style={{ width: "100%" }}
           value={Number(percent) !== 0 && Number(percent)}
           onChange={(e) => {
-            console.log("e.target.value--", e.target.value);
             setPercent(e.target.value);
           }}
         />
@@ -97,7 +92,8 @@ const HikeCalculator = () => {
       </StyleDiv>
       <StyleDiv>
         <StyledP2>
-          New increased Salary : {increaseSalary && formatNumber(increaseSalary)}
+          New increased Salary :{" "}
+          {increaseSalary && formatNumber(increaseSalary)}
         </StyledP2>
       </StyleDiv>
     </>
