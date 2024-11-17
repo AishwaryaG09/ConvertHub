@@ -46,6 +46,22 @@ const Calculators = () => {
         >
           Age calculator
         </StyledA>
+        <br />
+        <StyledA
+          onClick={() => {
+            navigate(pages.GRATUATY_CALCULATOR);
+          }}
+        >
+          Gratuity Calculator
+        </StyledA>
+        <br />
+        <StyledA
+          onClick={() => {
+            navigate(pages.EMI_CALCULATOR);
+          }}
+        >
+          EMI Calculator
+        </StyledA>
       </div>
     </>
   );

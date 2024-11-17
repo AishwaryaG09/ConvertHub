@@ -5,6 +5,7 @@ import HikeCalculator from "../Components/Calculators_SubComponent/HikeCalculato
 import WorkExperienceCalculator from "../Components/Calculators_SubComponent/WorkExperienceCalculator";
 import pages from "./pages";
 import FindAge from "../Components/Calculators_SubComponent/FindAge";
+import GratuityCalculator from '../Components/Calculators_SubComponent/GratuityCalculator'
 
 function Router() {
   return (
@@ -21,6 +22,12 @@ function Router() {
       </Routes>
       <Routes>
         <Route path={pages.FIND_AGE} element={<FindAge />} />
+      </Routes>
+      <Routes>
+        <Route path={pages.GRATUATY_CALCULATOR} element={<GratuityCalculator />} />
+      </Routes>
+      <Routes>
+        <Route path={pages.EMI_CALCULATOR} element={<FindAge />} />
       </Routes>
     </BrowserRouter>
   );

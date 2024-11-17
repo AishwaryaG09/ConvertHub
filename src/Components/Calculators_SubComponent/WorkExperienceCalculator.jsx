@@ -1,33 +1,11 @@
 import { useState } from "react";
-import styled from "styled-components";
-import { StyledInput } from "./FindAge";
-
-const StyledH1 = styled.h1`
-  padding: 8px 8px;
-  color: #2a52be;
-`;
-const StyleDiv = styled.div`
-  padding: 12px;
-  width: 60%;
-`;
-export const StyleButton = styled.button`
-  border-radius: 4px;
-  background: #2a52be;
-  color: #ffffff;
-  border: 1px solid #000000;
-  margin-right: 14px;
-  padding: 8px;
-`;
-
-const StyledP = styled.p`
-  margin-bottom: 5px;
-  color: #000000;
-`;
-
-const StyledP2 = styled.p`
-  font-size: 24px;
-  color: #000000;
-`;
+import {
+  StyledInput,
+  StyleButton,
+  StyleDiv,
+  StyledP,
+  StyledH1,StyledP2
+} from "./FindAge";
 
 const WorkExperienceCalculator = () => {
   const [DOJ, setDOJ] = useState();

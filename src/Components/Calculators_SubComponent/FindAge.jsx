@@ -1,11 +1,11 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const StyledH1 = styled.h1`
+export const StyledH1 = styled.h1`
   padding: 8px 8px;
   color: #2a52be;
 `;
-const StyleDiv = styled.div`
+export const StyleDiv = styled.div`
   padding: 12px;
   width: 60%;
 `;
@@ -18,12 +18,12 @@ export const StyleButton = styled.button`
   padding: 8px;
 `;
 
-const StyledP = styled.p`
+export const StyledP = styled.p`
   margin-bottom: 5px;
   color: #000000;
 `;
 
-const StyledP2 = styled.p`
+export const StyledP2 = styled.p`
   font-size: 24px;
   color: #000000;
 `;
