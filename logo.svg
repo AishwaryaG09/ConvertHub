@@ -1,0 +1,14 @@
+<svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield Icon -->
+  <g transform="translate(30, 20)">
+    <path d="M25 0 L0 10 L0 35 Q12.5 50 25 35 Q37.5 50 50 35 L50 10 Z" fill="#2A9D8F" stroke="#264653" stroke-width="2"/>
+  </g>
+  
+  <!-- CovertHub Text -->
+  <text x="80" y="55" font-family="'Arial', sans-serif" font-size="40" fill="#264653" font-weight="bold">
+    Covert
+  </text>
+  <text x="230" y="55" font-family="'Arial', sans-serif" font-size="40" fill="#E76F51" font-weight="bold">
+    Hub
+  </text>
+</svg>

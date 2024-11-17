@@ -6,6 +6,7 @@ import WorkExperienceCalculator from "../Components/Calculators_SubComponent/Wor
 import pages from "./pages";
 import FindAge from "../Components/Calculators_SubComponent/FindAge";
 import GratuityCalculator from '../Components/Calculators_SubComponent/GratuityCalculator'
+import EMICalculator from "../Components/Calculators_SubComponent/EMICalculator";
 
 function Router() {
   return (
@@ -27,7 +28,7 @@ function Router() {
         <Route path={pages.GRATUATY_CALCULATOR} element={<GratuityCalculator />} />
       </Routes>
       <Routes>
-        <Route path={pages.EMI_CALCULATOR} element={<FindAge />} />
+        <Route path={pages.EMI_CALCULATOR} element={<EMICalculator />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 // function render()
 import styled from "styled-components";
-import { StyleButton } from "./Calculators_SubComponent/HikeCalculator";
+import { StyleButton } from "./Calculators_SubComponent/FindAge";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
 import pages from "../navigation/pages";

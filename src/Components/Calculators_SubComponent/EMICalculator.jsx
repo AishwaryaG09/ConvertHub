@@ -13,92 +13,144 @@ const EMICalculator = () => {
   // PA= Principal ammount
   // ROI= Rate Of Interest
   // LT= Loan tenure
-
   const [PA, setPA] = useState();
   const [ROI, setROI] = useState();
   const [LT, setLT] = useState();
+  const [EMIAmount, setEMIAmount] = useState();
+  const [totalAmount, setTotalAmount] = useState();
+  const [totalInterest, setTotalInterest] = useState();
 
-  const [basicPayError, setBasicPayError] = useState(false);
-  const [experienceError, setExperienceError] = useState(false);
-  const [gratuityAmount, setGratuityAmount] = useState();
+  const [PAError, setPAError] = useState(false);
+  const [ROIError, setROIError] = useState(false);
+  const [LTError, setLTError] = useState(false);
 
-  const findGratuityAmount = () => {
-    if (!basicPay) {
-      return setBasicPayError(true);
-    } else if (!experience) {
-      return setExperienceError(true);
+  const findEMIAmount = () => {
+    if (!PA) {
+      setPAError(true);
+    } else if (!ROI) {
+      setROIError(true);
+    } else if (!LT) {
+      setLTError(true);
     } else {
-      setBasicPayError(false);
-      setExperienceError(false);
-      const amount = (15 * basicPay * experience) / 26;
-      setGratuityAmount(amount);
+      // const multiplyBottom = PA * ROI
+      const monthlyInterestRate = Number(ROI) / 12 / 100;
+
+      // Convert tenure from years to months
+      const tenureMonths = Number(LT) * 12;
+
+      // EMI Calculation formula
+      const emi =
+        (Number(PA) *
+          monthlyInterestRate *
+          Math.pow(1 + monthlyInterestRate, tenureMonths)) /
+        (Math.pow(1 + monthlyInterestRate, tenureMonths) - 1);
+
+      // Convert EMI from string to a number
+      const monthlyEMI = parseFloat(emi);
+
+      const totalPayment = monthlyEMI * tenureMonths;
+      setTotalAmount(totalPayment);
+      // Calculate total interest paid
+      const totalInterestAmt = totalPayment - Number(PA);
+      setTotalInterest(totalInterestAmt);
+      setEMIAmount(emi);
     }
   };
-  const onBPChange = (e) => {
-    setBasicPay(e.target.value);
+  const onPAChange = (e) => {
+    setPA(Number(e.target.value));
     if (e.target.value) {
-      setBasicPayError(false);
+      setPAError(false);
     }
   };
-  const onExpChange = (e) => {
-    setExperience(e.target.value);
+  const onROIChange = (e) => {
+    setROI(Number(e.target.value));
 
     if (e.target.value) {
-      setExperienceError(false);
+      setROIError(false);
+    }
+  };
+  const onLTChange = (e) => {
+    setLT(Number(e.target.value));
+
+    if (e.target.value) {
+      setLTError(false);
     }
   };
   const reset = () => {
-    setBasicPay();
-    setExperience();
-    setGratuityAmount();
-    setBasicPayError(false);
-    setExperienceError(false);
+    setPA();
+    setROI();
+    setLT();
+    setEMIAmount();
+    setTotalAmount();
+    setTotalInterest();
+    setPAError(false);
+    setROIError(false);
+    setLTError(false);
   };
   return (
     <>
-      <StyledH1>Find your Gratuity</StyledH1>
+      <StyledH1>EMI Calculator</StyledH1>
       <StyleDiv>
-        <StyledP>Salary (Basic Pay): </StyledP>
+        <StyledP>Loan Amount: </StyledP>
         <StyledInput
           type="number"
-          id="basicPay"
-          name="basicPay"
-          isError={basicPayError}
+          id="PA"
+          name="PA"
+          isError={PAError}
           style={{ width: "100%" }}
-          value={Number(basicPay) !== 0 && Number(basicPay)}
+          value={Number(PA) !== 0 && Number(PA)}
           onChange={(e) => {
-            onBPChange(e);
+            onPAChange(e);
           }}
         />
-        {basicPayError && (
+        {PAError && (
           <span id="error-msg" style={{ color: "red" }}>
-            Please add the basic pay
+            Please add the Loan amount
           </span>
         )}
       </StyleDiv>
       <StyleDiv>
-        <StyledP>No.of Years Of Service (Min:5 Years): </StyledP>
+        <StyledP>Rate of Interest (Per annum): </StyledP>
         <StyledInput
           type="number"
-          id="experience"
-          name="experience"
-          isError={experienceError}
+          id="ROI"
+          name="ROI"
+          isError={ROIError}
           style={{ width: "100%" }}
-          value={Number(experience) !== 0 && Number(experience)}
+          value={Number(ROI) !== 0 && Number(ROI)}
           onChange={(e) => {
-            onExpChange(e);
+            onROIChange(e);
           }}
         />
-        {experienceError && (
+        {ROIError && (
           <span id="error-msg" style={{ color: "red" }}>
-            Please add your experience
+            Please add Rate of Interest
+          </span>
+        )}
+      </StyleDiv>
+      <StyleDiv>
+        <StyledP>Loan tenure: </StyledP>
+        <StyledInput
+          type="number"
+          id="LT"
+          name="LT"
+          isError={LTError}
+          style={{ width: "100%" }}
+          value={Number(LT) !== 0 && Number(LT)}
+          onChange={(e) => {
+            onLTChange(e);
+          }}
+        />
+        {LTError && (
+          <span id="error-msg" style={{ color: "red" }}>
+            Please add Loan tenure
           </span>
         )}
       </StyleDiv>
       <StyleDiv>
         <StyleButton
           onClick={() => {
-            findGratuityAmount();
+            findEMIAmount();
           }}
         >
           Calculate
@@ -112,9 +164,16 @@ const EMICalculator = () => {
         </StyleButton>
       </StyleDiv>
       <StyleDiv>
+        <StyledP2>Loan amount :{PA && formatNumber(Math.floor(PA))}</StyledP2>
         <StyledP2>
-          Gratuity Calculator :
-          {gratuityAmount && formatNumber(Math.floor(gratuityAmount))}
+          Monthly EMI :{EMIAmount && formatNumber(Math.floor(EMIAmount))}
+        </StyledP2>
+        <StyledP2>
+          Total interest :
+          {totalInterest && formatNumber(Math.floor(totalInterest))}
+        </StyledP2>
+        <StyledP2>
+          Total amount :{totalAmount && formatNumber(Math.floor(totalAmount))}
         </StyledP2>
       </StyleDiv>
     </>
