@@ -1,4 +1,3 @@
-// function render()
 import styled from "styled-components";
 import { StyleButton } from "./Calculators_SubComponent/FindAge";
 import "./Header.css";

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import pages from "../navigation/pages";
 import { useNavigate } from "react-router-dom";
 
-const StyledH6 = styled.h6`
+export const StyledH6 = styled.h6`
   border: 3px solid #ffffff;
   padding: 10px 5px;
   background: #2a52be;
@@ -12,9 +12,10 @@ const StyledH6 = styled.h6`
   font-weight: bolder;
   font-size: 16px;
 `;
-const StyledA = styled.a`
+export const StyledA = styled.a`
   padding-left: 12px;
-  font-size: 12px;
+  font-size: 16px;
+  line-height: 1.5;
   cursor: pointer;
 `;
 const Calculators = () => {

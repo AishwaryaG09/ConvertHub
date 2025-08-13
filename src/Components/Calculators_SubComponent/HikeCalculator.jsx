@@ -111,6 +111,13 @@ const HikeCalculator = () => {
           {increaseSalary && formatNumber(Math.floor(increaseSalary))}
         </StyledP2>
       </StyleDiv>
+      <StyleDiv>
+        <StyledP2>
+          Salary increased by amount :
+          {increaseSalary &&
+            formatNumber(increaseSalary - Number(currentSalary))}
+        </StyledP2>
+      </StyleDiv>
     </>
   );
 };

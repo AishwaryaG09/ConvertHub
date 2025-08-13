@@ -1,5 +1,6 @@
 import { useState } from "react";
 import formatNumber from "../../utils/formatNumber";
+import downloadAsPDF from "../../utils/downloadAsPDF";
 import {
   StyledInput,
   StyleButton,
@@ -48,6 +49,27 @@ const GratuityCalculator = () => {
     setBasicPayError(false);
     setExperienceError(false);
   };
+
+  const data = [
+    { label: "Salary (Basic Pay)", value: Number(basicPay) },
+    {
+      label: "No.of Years Of Service (Min:5 Years)",
+      value: Number(experience),
+    },
+    {
+      label: "Calculated Gratuity",
+      value: formatNumber(Math.floor(gratuityAmount)),
+    },
+  ];
+
+  const downloadPDF = () => {
+    downloadAsPDF({
+      title: "Gratuity Calculated Summary",
+      filename: "Gratuity-summary.pdf",
+      data,
+    });
+  };
+
   return (
     <>
       <StyledH1>Find your Gratuity</StyledH1>
@@ -104,10 +126,17 @@ const GratuityCalculator = () => {
         >
           Reset
         </StyleButton>
+          <StyleButton
+          onClick={() => {
+            downloadPDF();
+          }}
+        >
+          Download Summary as PDF
+        </StyleButton>
       </StyleDiv>
       <StyleDiv>
         <StyledP2>
-          Gratuity Calculator :
+          Calculated Gratuity :
           {gratuityAmount && formatNumber(Math.floor(gratuityAmount))}
         </StyledP2>
       </StyleDiv>
