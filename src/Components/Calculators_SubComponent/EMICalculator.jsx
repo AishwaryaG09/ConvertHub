@@ -1,5 +1,6 @@
 import { useState } from "react";
 import formatNumber from "../../utils/formatNumber";
+import downloadAsPDF from "../../utils/downloadAsPDF";
 import {
   StyledInput,
   StyleButton,
@@ -12,7 +13,7 @@ import {
 const EMICalculator = () => {
   // PA= Principal ammount
   // ROI= Rate Of Interest
-  // LT= Loan tenure
+  // LT= Loan tenure in Years
   const [PA, setPA] = useState();
   const [ROI, setROI] = useState();
   const [LT, setLT] = useState();
@@ -87,6 +88,27 @@ const EMICalculator = () => {
     setROIError(false);
     setLTError(false);
   };
+
+  const data = [
+    { label: "Loan Amount", value: PA },
+    { label: "Rate of Interest (Per annum)", value: ROI },
+    { label: "Loan tenure in Years", value: LT },
+    { label: "Monthly EMI", value: formatNumber(Math.floor(EMIAmount)) },
+    { label: "Total interest", value: formatNumber(Math.floor(totalInterest)) },
+    {
+      label: "Total amount of Repay",
+      value: formatNumber(Math.floor(totalAmount)),
+    },
+  ];
+
+  const downloadPDF = () => {
+    downloadAsPDF({
+      title: "Loan EMI Calculated Summary",
+      filename: "loan-summary.pdf",
+      data,
+    });
+  };
+
   return (
     <>
       <StyledH1>EMI Calculator</StyledH1>
@@ -129,7 +151,7 @@ const EMICalculator = () => {
         )}
       </StyleDiv>
       <StyleDiv>
-        <StyledP>Loan tenure: </StyledP>
+        <StyledP>Loan tenure in Years: </StyledP>
         <StyledInput
           type="number"
           id="LT"
@@ -143,7 +165,7 @@ const EMICalculator = () => {
         />
         {LTError && (
           <span id="error-msg" style={{ color: "red" }}>
-            Please add Loan tenure
+            Please add Loan tenure in Years
           </span>
         )}
       </StyleDiv>
@@ -162,6 +184,13 @@ const EMICalculator = () => {
         >
           Reset
         </StyleButton>
+        <StyleButton
+          onClick={() => {
+            downloadPDF();
+          }}
+        >
+          Download Summary as PDF
+        </StyleButton>
       </StyleDiv>
       <StyleDiv>
         <StyledP2>Loan amount :{PA && formatNumber(Math.floor(PA))}</StyledP2>
@@ -173,7 +202,8 @@ const EMICalculator = () => {
           {totalInterest && formatNumber(Math.floor(totalInterest))}
         </StyledP2>
         <StyledP2>
-          Total amount :{totalAmount && formatNumber(Math.floor(totalAmount))}
+          Total amount of Repay :
+          {totalAmount && formatNumber(Math.floor(totalAmount))}
         </StyledP2>
       </StyleDiv>
     </>
