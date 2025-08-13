@@ -1,0 +1,142 @@
+[
+    {
+        "BankName": "Bank of Horizon",
+        "IFSCCode": "IFSC0000000",
+        "ROI": {
+            "PersonalLoan": 9.94,
+            "HomeLoan": 8.42,
+            "CarLoan": 8.74,
+            "EducationLoan": 10.37
+        },
+        "AgentDetails": {
+            "Name": "Alice Johnson",
+            "ContactNumber": "+1-800-555-1000"
+        }
+    },
+    {
+        "BankName": "Unity Bank",
+        "IFSCCode": "IFSC0000001",
+        "ROI": {
+            "PersonalLoan": 12.09,
+            "HomeLoan": 9.6,
+            "CarLoan": 8.21,
+            "EducationLoan": 8.23
+        },
+        "AgentDetails": {
+            "Name": "Bob Smith",
+            "ContactNumber": "+1-800-555-1001"
+        }
+    },
+    {
+        "BankName": "Pioneer Financial",
+        "IFSCCode": "IFSC0000002",
+        "ROI": {
+            "PersonalLoan": 14.98,
+            "HomeLoan": 8.26,
+            "CarLoan": 10.11,
+            "EducationLoan": 11.54
+        },
+        "AgentDetails": {
+            "Name": "Carol White",
+            "ContactNumber": "+1-800-555-1002"
+        }
+    },
+    {
+        "BankName": "TrustOne Bank",
+        "IFSCCode": "IFSC0000003",
+        "ROI": {
+            "PersonalLoan": 12.76,
+            "HomeLoan": 7.24,
+            "CarLoan": 7.32,
+            "EducationLoan": 10.97
+        },
+        "AgentDetails": {
+            "Name": "David Brown",
+            "ContactNumber": "+1-800-555-1003"
+        }
+    },
+    {
+        "BankName": "CapitalEdge",
+        "IFSCCode": "IFSC0000004",
+        "ROI": {
+            "PersonalLoan": 12.19,
+            "HomeLoan": 6.58,
+            "CarLoan": 7.29,
+            "EducationLoan": 11.02
+        },
+        "AgentDetails": {
+            "Name": "Eva Green",
+            "ContactNumber": "+1-800-555-1004"
+        }
+    },
+    {
+        "BankName": "SecureBank",
+        "IFSCCode": "IFSC0000005",
+        "ROI": {
+            "PersonalLoan": 13.04,
+            "HomeLoan": 6.68,
+            "CarLoan": 10.06,
+            "EducationLoan": 11.09
+        },
+        "AgentDetails": {
+            "Name": "Frank Black",
+            "ContactNumber": "+1-800-555-1005"
+        }
+    },
+    {
+        "BankName": "NovaTrust",
+        "IFSCCode": "IFSC0000006",
+        "ROI": {
+            "PersonalLoan": 13.9,
+            "HomeLoan": 7.21,
+            "CarLoan": 10.27,
+            "EducationLoan": 8.64
+        },
+        "AgentDetails": {
+            "Name": "Grace Lee",
+            "ContactNumber": "+1-800-555-1006"
+        }
+    },
+    {
+        "BankName": "Evergreen Bank",
+        "IFSCCode": "IFSC0000007",
+        "ROI": {
+            "PersonalLoan": 9.43,
+            "HomeLoan": 6.5,
+            "CarLoan": 10.92,
+            "EducationLoan": 11.81
+        },
+        "AgentDetails": {
+            "Name": "Henry Adams",
+            "ContactNumber": "+1-800-555-1007"
+        }
+    },
+    {
+        "BankName": "Summit Financial",
+        "IFSCCode": "IFSC0000008",
+        "ROI": {
+            "PersonalLoan": 11.06,
+            "HomeLoan": 9.91,
+            "CarLoan": 10.79,
+            "EducationLoan": 8.16
+        },
+        "AgentDetails": {
+            "Name": "Ivy Clark",
+            "ContactNumber": "+1-800-555-1008"
+        }
+    },
+    {
+        "BankName": "Liberty Bank",
+        "IFSCCode": "IFSC0000009",
+        "ROI": {
+            "PersonalLoan": 9.36,
+            "HomeLoan": 8.71,
+            "CarLoan": 10.96,
+            "EducationLoan": 10.1
+        },
+        "AgentDetails": {
+            "Name": "Jack Turner",
+            "ContactNumber": "+1-800-555-1009"
+        }
+    }
+]
